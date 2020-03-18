@@ -1,7 +1,7 @@
-<div role="presentation" [formGroup]="form" >
+<div [formGroup]="form" >
     <label [attr.for]="question.key">{{ question.label }}</label>
 
-    <div role="presentation" [ngSwitch]="question.controlType">
+    <div [ngSwitch]="question.controlType">
 
         <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type" />
 
@@ -11,5 +11,5 @@
 
     </div>
 
-    <div class="errorMessage" role="presentation" *ngIf="!isValid">{{ question.label }} is required.</div>
+    <div class="errorMessage" *ngIf="!isValid">{{ question.label }} is required.</div>
 </div>

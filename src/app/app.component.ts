@@ -6,12 +6,15 @@ import { QuestionService } from './question.service';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    template: `
+        <div>
+            <h2>Job Application for Heroes</h2>
+            <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+        </div>
+    `,
     providers: [QuestionService]
 })
 export class AppComponent {
-  title = 'Dynamic Forms Demo';
   questions$: Observable<QuestionBase<any>[]>;
 
   constructor(service: QuestionService) {
